@@ -89,7 +89,7 @@ function generateServiceFunction(operation, method, route, baseUrl, options) {
   // Merge configurations
   func += `    // Merge configurations\n`;
   func += `    const mergedConfig = { ...ApiConfig, ...config };\n`;
-  func += `    const baseUrl = mergedConfig.baseUrl || '${baseUrl || 'http://localhost:3000/api'}';\n`;
+  func += `    const baseUrl = mergedConfig.baseUrl;\n`;
   func += `    const url = new URL(endpoint, baseUrl);\n\n`;
 
   // Handle query parameters for GET

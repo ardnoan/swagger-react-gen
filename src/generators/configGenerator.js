@@ -6,7 +6,7 @@ export function generateApiConfigFile(baseUrl, options = {}) {
 
 export const ApiConfig = {
   // Base URL - can be overridden by environment variable
-  baseUrl: process.env.REACT_APP_API_BASE_URL || '${baseUrl || 'http://localhost:3000/api'}',
+  baseUrl: process.env.REACT_APP_API_BASE_URL,
   
   // Request timeout in milliseconds
   timeout: ${options.timeout || 30000},
@@ -15,7 +15,7 @@ export const ApiConfig = {
   retries: ${options.retries || 3},
   
   // Enable request/response logging
-  enableLogging: process.env.NODE_ENV === 'development' || ${options.enableLogging || false},
+  enableLogging: process.env.NODE_ENV === 'development',
   
   // Default headers for all requests
   defaultHeaders: {

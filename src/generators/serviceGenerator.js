@@ -206,7 +206,7 @@ function LoginComponent() {
 ### Environment Variables
 Add to your \`.env\` file:
 \`\`\`bash
-REACT_APP_API_BASE_URL=http://localhost:3000/api
+REACT_APP_API_BASE_URL=
 NODE_ENV=development
 \`\`\`
 
