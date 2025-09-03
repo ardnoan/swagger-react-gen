@@ -1,0 +1,12 @@
+{
+  "name": "swagger-react-gen",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "swagger-react-gen": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "node-fetch": "^2.7.0"
+  }
+}
