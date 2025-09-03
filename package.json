@@ -1,12 +1,46 @@
 {
   "name": "swagger-react-gen",
   "version": "1.0.0",
+  "description": "Generate React API clients from Swagger/OpenAPI specifications",
   "type": "module",
   "bin": {
     "swagger-react-gen": "./index.js"
   },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build",
+    "build": "echo \"Build completed\"",
+    "dev": "node index.js --input ./example/swagger.json --output ./example/output",
+    "example": "node index.js --input https://petstore3.swagger.io/api/v3/openapi.json --output ./example/petstore"
+  },
+  "keywords": [
+    "swagger",
+    "openapi",
+    "react",
+    "api",
+    "generator",
+    "client",
+    "typescript"
+  ],
+  "author": "Ardnoan",
+  "license": "MIT",
   "dependencies": {
     "commander": "^11.1.0",
     "node-fetch": "^2.7.0"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ardnoan/swagger-react-gen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ardnoan/swagger-react-gen/issues"
+  },
+  "homepage": "https://github.com/ardnoan/swagger-react-gen#readme"
 }
