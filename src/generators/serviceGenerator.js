@@ -120,11 +120,8 @@ async function generateSupportingFiles(outputDir, serviceFiles, swaggerData, bas
 
 function generateAuthHeaderFile() {
   return `// Auth header utility for API requests
-import { tokenUtils } from '../../utils/token';
-
-
 export default function authHeader() {
-  const token = tokenUtils.get();
+  const token = window.$utils?.getToken();
 
   if (token) {
     return {
