@@ -23,7 +23,7 @@ export function generateServiceFile(tag, endpoints, baseUrl, options) {
 }
 
 function generateServiceMethod(operation, method, route) {
-  const funcName = sanitizeFunctionName(operation.operationId || generateOperationId(method, route));
+  const funcName = sanitizeFunctionName(generateOperationId(method, route));
   const pathParams = extractPathParams(route);
   const upperMethod = method.toUpperCase();
 
