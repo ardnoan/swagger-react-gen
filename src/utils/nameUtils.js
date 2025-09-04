@@ -10,7 +10,7 @@ export function generateOperationId(method, route) {
   // Hilangkan prefix standar (misalnya /api/v1/)
   let cleanRoute = route.replace(/^\/api\/v\d+\//, '');
 
-  // Ambil nama paling akhir (sesuai yang kamu mau, kayak menus_grid)
+  // Ambil nama paling akhir dari path
   const parts = cleanRoute.split('/');
   let baseName = parts[parts.length - 1] || parts[parts.length - 2];
 
@@ -20,6 +20,11 @@ export function generateOperationId(method, route) {
     .replace(/[^\w]/g, '_')       // non-alfanumerik → underscore
     .replace(/__+/g, '_')         // multiple underscore jadi satu
     .replace(/^_+|_+$/g, '');     // hapus underscore awal/akhir
+
+  // Kalau route mengandung "auth", biarkan apa adanya
+  if (route.includes('/auth/')) {
+    return baseName;
+  }
 
   // Naming sesuai method
   const upperMethod = method.toUpperCase();
@@ -33,9 +38,10 @@ export function generateOperationId(method, route) {
       return `delete_${baseName}`;
     case 'GET':
     default:
-      return baseName; // GET cukup pakai nama entity
+      return baseName; // GET tetap nama entity
   }
 }
+
 
 export function extractPathParams(route) {
   const matches = route.match(/\{([^}]+)\}/g);
